@@ -22,6 +22,7 @@ const getDragTarget = (ev: React.PointerEvent) => {
 	const elLayer = el?.closest("[data-layer-item]") as HTMLElement;
 	return {
 		el: elLayer,
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		cmp: (elLayer as any)?.__cmp as Component,
 	};
 };

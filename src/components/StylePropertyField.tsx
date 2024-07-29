@@ -161,7 +161,9 @@ export default function StylePropertyField({
 						min={sliderProp.getMin()}
 						max={sliderProp.getMax()}
 						step={sliderProp.getStep()}
-						onChange={onChange}
+						onChange={(_, value) => {
+							handleChange(String(value));
+						}}
 						valueLabelDisplay="auto"
 					/>
 				);

@@ -36,6 +36,7 @@ export default function LayerItem({
 	useEffect(() => {
 		level === 0 && setLayerData(Layers.getLayerData(component));
 		if (layerRef.current) {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			(layerRef.current as any).__cmp = component;
 		}
 	}, [component]);
