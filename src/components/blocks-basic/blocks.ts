@@ -64,6 +64,7 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
 	const step = 0.2;
 	const minDim = 1;
 	const currentUnit = 1;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const resizerBtm: Record<string, any> = {
 		tl: 0,
 		tc: 0,
@@ -74,6 +75,7 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
 		br: 0,
 		minDim,
 	};
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const resizerRight: Record<string, any> = {
 		...resizerBtm,
 		cr: 1,
@@ -96,6 +98,7 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
 		"data-gjs-name": "Row",
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const colAttr: Record<string, any> = {
 		class: clsCell,
 		"data-gjs-draggable": `.${clsRow}`,
@@ -117,6 +120,7 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
 			selector.set("private", 1)
 	);
 
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	const attrsToString = (attrs: Record<string, any>) => {
 		const result = [];
 
