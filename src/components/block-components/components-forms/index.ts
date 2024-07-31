@@ -21,6 +21,7 @@ export type PluginOptions = {
 	 * @default (blockId) => ({})
 	 * @example (blockId) => blockId === 'input' ? { attributes: {...} } : {};
 	 */
+	// eslint-disable-next-line @typescript-eslint/ban-types
 	block?: (blockId: string) => {};
 };
 
@@ -35,6 +36,8 @@ const plugin: Plugin<PluginOptions> = (editor, opts = {}) => {
 			"label",
 			"checkbox",
 			"radio",
+			"date",
+			"time",
 		],
 		category: { id: "forms", label: "Forms" },
 		block: () => ({}),

@@ -46,6 +46,7 @@ export default function (editor: Editor) {
 
 				const el = document.createElement("textarea");
 				el.value = optionsArr.join("\n");
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				this.$input = el as any;
 			}
 

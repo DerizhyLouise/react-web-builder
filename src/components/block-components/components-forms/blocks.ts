@@ -3,18 +3,21 @@ import { PluginOptions } from ".";
 import {
 	typeButton,
 	typeCheckbox,
+	typeDate,
 	typeForm,
 	typeInput,
 	typeLabel,
 	typeRadio,
 	typeSelect,
 	typeTextarea,
+	typeTime,
 } from "./components";
 
 export default function (editor: Editor, opt: Required<PluginOptions>) {
 	const opts = opt;
 	const bm = editor.BlockManager;
 	const addBlock = (id: string, def: BlockProperties) => {
+		// eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
 		opts.blocks?.indexOf(id)! >= 0 &&
 			bm.add(id, {
 				...def,
@@ -40,6 +43,12 @@ export default function (editor: Editor, opt: Required<PluginOptions>) {
 					components: [
 						{ type: typeLabel, components: "Email" },
 						{ type: typeInput, attributes: { type: "email" } },
+					],
+				},
+				{
+					components: [
+						{ type: typeLabel, components: "Date" },
+						{ type: typeInput, attributes: { type: "date" } },
 					],
 				},
 				{
@@ -104,5 +113,15 @@ export default function (editor: Editor, opt: Required<PluginOptions>) {
 		label: "Radio",
 		media: '<svg xmlns="http://www.w3.org/2000/svg" style="fill: #ffffff;" viewBox="0 0 24 24"><path d="M12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8m0-18C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2m0 5c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5z"></path></svg>',
 		content: { type: typeRadio },
+	});
+	addBlock(typeDate, {
+		label: "Date",
+		media: '<svg xmlns="http://www.w3.org/2000/svg" style="fill: #ffffff; height: 40px; width: 40px;" viewBox="0 0 448 512"><path d="M152 24c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L64 64C28.7 64 0 92.7 0 128l0 16 0 48L0 448c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-256 0-48 0-16c0-35.3-28.7-64-64-64l-40 0 0-40c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 40L152 64l0-40zM48 192l352 0 0 256c0 8.8-7.2 16-16 16L64 464c-8.8 0-16-7.2-16-16l0-256z"/></svg>',
+		content: { type: typeDate },
+	});
+	addBlock(typeTime, {
+		label: "Time",
+		media: '<svg xmlns="http://www.w3.org/2000/svg" style="fill: #ffffff; height: 40px; width: 40px;" viewBox="0 0 512 512"><path d="M464 256A208 208 0 1 1 48 256a208 208 0 1 1 416 0zM0 256a256 256 0 1 0 512 0A256 256 0 1 0 0 256zM232 120l0 136c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2 280 120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"/></svg>',
+		content: { type: typeTime },
 	});
 }

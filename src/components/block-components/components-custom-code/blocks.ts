@@ -5,6 +5,8 @@ import { typeCustomCode } from "./utils";
 export default (editor: Editor, { blockCustomCode }: PluginOptions = {}) => {
 	const { Blocks } = editor;
 
+	console.log(blockCustomCode);
+
 	blockCustomCode &&
 		Blocks.add(typeCustomCode, {
 			label: "Custom Code",

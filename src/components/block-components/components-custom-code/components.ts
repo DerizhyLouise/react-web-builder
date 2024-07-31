@@ -28,6 +28,7 @@ export default (editor: Editor, opts: PluginOptions = {}) => {
 						type: "textnode",
 						content: "Insert here your custom code",
 					},
+					// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				} as any,
 				...opts.propsCustomCode,
 			},
@@ -69,6 +70,7 @@ export default (editor: Editor, opts: PluginOptions = {}) => {
 		view: {
 			events: {
 				dblclick: "onActive",
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} as any,
 
 			init() {

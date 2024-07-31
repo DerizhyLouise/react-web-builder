@@ -5,6 +5,7 @@ import GjsEditor, {
 } from "@grapesjs/react";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { EditorConfig, type Editor } from "grapesjs";
+import plugin from "grapesjs-preset-webpage";
 import basicBlocksPlugin from "./components/block-components/blocks-basic";
 import customCodePlugin from "./components/block-components/components-custom-code";
 import formPlugin from "./components/block-components/components-forms";
@@ -20,40 +21,42 @@ const theme = createTheme({
 	},
 });
 
-const gjsOptions: EditorConfig = {
-	height: "100vh",
-	storageManager: false,
-	undoManager: { trackSelection: false },
-	selectorManager: { componentFirst: true },
-	projectData: {
-		assets: [
-			"https://via.placeholder.com/350x250/78c5d6/fff",
-			"https://via.placeholder.com/350x250/459ba8/fff",
-			"https://via.placeholder.com/350x250/79c267/fff",
-			"https://via.placeholder.com/350x250/c5d647/fff",
-			"https://via.placeholder.com/350x250/f28c33/fff",
-		],
-		pages: [
-			{
-				name: "Home page",
-				component: `<h1>GrapesJS React Custom UI</h1>`,
-			},
-		],
-	},
-	plugins: [basicBlocksPlugin, formPlugin, customCodePlugin],
-	pluginsOpts: {
-		customCodePlugin: {
-			blockCustomCode: {
-				label: "Custom Code",
-				category: "Extra",
-			},
-		},
-	},
-};
-
 function App() {
+	const gjsOptions: EditorConfig = {
+		height: "100vh",
+		storageManager: false,
+		undoManager: { trackSelection: false },
+		selectorManager: { componentFirst: true },
+		projectData: {
+			assets: [
+				"https://via.placeholder.com/350x250/78c5d6/fff",
+				"https://via.placeholder.com/350x250/459ba8/fff",
+				"https://via.placeholder.com/350x250/79c267/fff",
+				"https://via.placeholder.com/350x250/c5d647/fff",
+				"https://via.placeholder.com/350x250/f28c33/fff",
+			],
+			pages: [
+				{
+					name: "Home page",
+					component: `<h1>GrapesJS React Custom UI</h1>`,
+				},
+			],
+		},
+		plugins: [basicBlocksPlugin, formPlugin, customCodePlugin, plugin],
+		pluginsOpts: {
+			customCodePlugin: {
+				blockCustomCode: {
+					label: "Custom Code",
+					category: "Forms",
+				},
+			},
+			plugin: {},
+		},
+	};
+
 	const onEditor = (editor: Editor) => {
 		console.log("Editor loaded", { editor });
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		(window as any).editor = editor;
 	};
 

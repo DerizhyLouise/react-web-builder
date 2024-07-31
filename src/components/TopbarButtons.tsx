@@ -4,6 +4,8 @@ import {
 	mdiArrowURightTop,
 	mdiBorderRadius,
 	mdiFullscreen,
+	mdiPencil,
+	mdiTrashCanOutline,
 	mdiXml,
 } from "@mdi/js";
 import Icon from "@mdi/react";
@@ -39,6 +41,10 @@ export default function TopbarButtons({
 			iconPath: mdiXml,
 		},
 		{
+			id: "core:gjs-open-import-webpage",
+			iconPath: mdiPencil,
+		},
+		{
 			id: "core:undo",
 			iconPath: mdiArrowULeftTop,
 			disabled: () => !UndoManager.hasUndo(),
@@ -47,6 +53,10 @@ export default function TopbarButtons({
 			id: "core:redo",
 			iconPath: mdiArrowURightTop,
 			disabled: () => !UndoManager.hasRedo(),
+		},
+		{
+			id: "core:canvas-clear",
+			iconPath: mdiTrashCanOutline,
 		},
 	];
 

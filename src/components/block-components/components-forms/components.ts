@@ -6,6 +6,8 @@ export const typeTextarea = "textarea";
 export const typeSelect = "select";
 export const typeCheckbox = "checkbox";
 export const typeRadio = "radio";
+export const typeDate = "date";
+export const typeTime = "time";
 export const typeButton = "button";
 export const typeLabel = "label";
 export const typeOption = "option";
@@ -67,8 +69,16 @@ export default function (editor: Editor) {
 						type: "select",
 						name: "method",
 						options: [
-							{ value: "get", name: "GET" },
-							{ value: "post", name: "POST" },
+							{
+								value: "get",
+								name: "GET",
+								id: "",
+							},
+							{
+								value: "post",
+								name: "POST",
+								id: "",
+							},
 						],
 					},
 					{
@@ -83,6 +93,7 @@ export default function (editor: Editor) {
 				// The submit of the form might redirect the user from the editor so
 				// we should always prevent the default here.
 				submit: (e: Event) => e.preventDefault(),
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} as any,
 		},
 	});
@@ -104,10 +115,22 @@ export default function (editor: Editor) {
 						type: "select",
 						name: "type",
 						options: [
-							{ value: "text" },
-							{ value: "email" },
-							{ value: "password" },
-							{ value: "number" },
+							{
+								value: "text",
+								id: "",
+							},
+							{
+								value: "email",
+								id: "",
+							},
+							{
+								value: "password",
+								id: "",
+							},
+							{
+								value: "number",
+								id: "",
+							},
 						],
 					},
 					requiredTrait,
@@ -179,6 +202,7 @@ export default function (editor: Editor) {
 		view: {
 			events: {
 				mousedown: checkIfInPreview,
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} as any,
 		},
 	});
@@ -207,6 +231,7 @@ export default function (editor: Editor) {
 		view: {
 			events: {
 				click: checkIfInPreview,
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} as any,
 
 			init() {
@@ -218,6 +243,7 @@ export default function (editor: Editor) {
 			},
 
 			handleChecked() {
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				(this.el as any).checked =
 					!!this.model.get("attributes")?.checked;
 			},
@@ -255,9 +281,18 @@ export default function (editor: Editor) {
 						type: "select",
 						name: "type",
 						options: [
-							{ value: "button" },
-							{ value: "submit" },
-							{ value: "reset" },
+							{
+								value: "button",
+								id: "",
+							},
+							{
+								value: "submit",
+								id: "",
+							},
+							{
+								value: "reset",
+								id: "",
+							},
 						],
 					},
 				],
@@ -285,7 +320,34 @@ export default function (editor: Editor) {
 		view: {
 			events: {
 				click: checkIfInPreview,
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 			} as any,
+		},
+	});
+
+	// DATE
+	Components.addType(typeDate, {
+		extend: typeCheckbox,
+		isComponent: (el) =>
+			el.tagName == "INPUT" && (el as HTMLInputElement).type == "date",
+
+		model: {
+			defaults: {
+				attributes: { type: "date" },
+			},
+		},
+	});
+
+	// TIME
+	Components.addType(typeTime, {
+		extend: typeCheckbox,
+		isComponent: (el) =>
+			el.tagName == "INPUT" && (el as HTMLInputElement).type == "time",
+
+		model: {
+			defaults: {
+				attributes: { type: "time" },
+			},
 		},
 	});
 
@@ -297,6 +359,7 @@ export default function (editor: Editor) {
 		model: {
 			defaults: {
 				tagName: "label",
+				// eslint-disable-next-line @typescript-eslint/no-explicit-any
 				components: "Label" as any,
 				traits: [forTrait],
 			},

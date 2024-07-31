@@ -23,6 +23,7 @@ export type PluginOptions = {
 	 * @example
 	 * { label: '</>', attributes: { title: 'Open custom code' } }
 	 */
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	toolbarBtnCustomCode?: Record<string, any>;
 
 	/**

@@ -19,6 +19,7 @@ export default (editor: Editor, opts: PluginOptions = {}) => {
 	editor.Commands.add(commandNameCustomCode, {
 		keyCustomCode,
 		target: null as null | Component,
+		// eslint-disable-next-line @typescript-eslint/no-explicit-any
 		codeViewer: null as any,
 
 		run(editor, s, opts = {}) {
