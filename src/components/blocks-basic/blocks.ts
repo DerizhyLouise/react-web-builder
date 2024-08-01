@@ -124,7 +124,7 @@ export default function (editor: Editor, opts: Required<PluginOptions>) {
 	const attrsToString = (attrs: Record<string, any>) => {
 		const result = [];
 
-		for (let key in attrs) {
+		for (const key in attrs) {
 			let value = attrs[key];
 			const toParse = value instanceof Array || value instanceof Object;
 			value = toParse ? JSON.stringify(value) : value;

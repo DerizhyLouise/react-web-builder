@@ -51,7 +51,7 @@ body {
 .gjs-sm-sector .gjs-sm-field.gjs-sm-composite,
 .gjs-sm-sector .gjs-sm-stack #gjs-sm-add,
 .gjs-two-color {
-	color: #888686 !important;
+	color: #fff !important;
 }
 
 #gjs-rte-toolbar,
@@ -70,7 +70,7 @@ body {
 .sp-container,
 .gjs-block,
 .gjs-one-bg {
-	background-color: #263238 !important;
+	background-color: #373d49 !important;
 }
 
 .gjs-import-label,

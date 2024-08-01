@@ -10,16 +10,20 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@codemirror/commands": "^6.6.0",
+    "@codemirror/lang-javascript": "^6.2.2",
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
     "@grapesjs/react": "^1.0.0",
     "@mdi/js": "^7.2.96",
     "@mdi/react": "^1.6.1",
     "@mui/material": "^5.13.7",
+    "@uiw/codemirror-theme-aura": "^4.23.0",
+    "@uiw/react-codemirror": "^4.23.0",
     "grapesjs": "^0.21.12",
+    "grapesjs-preset-webpage": "^1.0.3",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "grapesjs-preset-webpage": "^1.0.3"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@types/react": "^18.3.3",

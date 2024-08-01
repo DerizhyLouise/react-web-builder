@@ -5,7 +5,7 @@ import basicBlocksPlugin from "./components/blocks-basic";
 import customCodePlugin from "./components/components-custom-code";
 import formPlugin from "./components/components-forms";
 
-function App() {
+function Gjs() {
 	const onEditor = (editor: Editor) => {
 		console.log("Editor loaded", { editor });
 	};
@@ -29,4 +29,4 @@ function App() {
 	);
 }
 
-export default App;
+export default Gjs;
